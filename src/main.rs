@@ -12,34 +12,34 @@ mod windowing;
 mod avatars;
 mod versions;
 
-extern crate ini;
-extern crate serde;
-extern crate serde_json;
-extern crate directories;
-extern crate fs2;
-extern crate cfg_if;
-extern crate ring;
-extern crate data_encoding;
-extern crate ulid;
-extern crate fern;
-extern crate log;
-extern crate url;
-extern crate chrono;
-extern crate rand;
-extern crate serde_cbor;
+
+
+
+
+
+
+
+
+
+use fern;
+use log;
+
+use chrono;
+use rand;
+
 
 cfg_if! {
     if #[cfg(target_family = "unix")] {
         extern crate nix;
         extern crate libc;
     } else if #[cfg(target_family = "windows")] {
-        extern crate windows;
+        
         use windows::Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED};
     }
 }
 
 use std::{io, env, thread};
-use std::collections::HashMap;
+
 use std::fs;
 use std::sync::{Arc, RwLock};
 use cfg_if::cfg_if;
@@ -60,7 +60,7 @@ const APP_VERSION: &'static str = env!("CARGO_PKG_VERSION");
 
 // This is the application state, it will be (mostly) immutable through the life of the application
 mod state {
-    use std::collections::HashMap;
+    
     use crate::config::Config;
     use std::path::PathBuf;
     use std::sync::{Arc, RwLock};

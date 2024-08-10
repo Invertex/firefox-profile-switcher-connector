@@ -6,7 +6,7 @@ use std::path::{PathBuf, Path};
 use ini::{EscapePolicy, Ini, ParseOption};
 use std::io;
 use std::fs::OpenOptions;
-use crate::storage::{avatar_data_path, options_data_path, order_data_path};
+use crate::storage::{avatar_data_path, options_data_path};
 use ring::digest::{Context, SHA256};
 use data_encoding::HEXUPPER;
 

@@ -1,11 +1,11 @@
 use std::fs;
-use std::path::PathBuf;
+
 use std::str::FromStr;
 use ulid::{Ulid};
 use crate::{AppContext, NativeResponse};
-use crate::avatars::encode_avatar_to_string;
+
 use crate::ipc::notify_update_avatars;
-use crate::native_req::{NativeMessageDeleteAvatar, NativeMessageGetAvatar};
+use crate::native_req::{NativeMessageDeleteAvatar};
 use crate::native_resp::NativeResponseData;
 use crate::profiles::ProfilesIniState;
 

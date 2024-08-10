@@ -13,7 +13,7 @@ use serde::{Serialize, Deserialize};
 use crate::AppContext;
 use crate::avatars::{update_and_native_notify_avatars};
 use crate::process::fork_browser_proc;
-use crate::profiles_order::{native_notify_updated_profile_order, OrderData};
+use crate::profiles_order::{native_notify_updated_profile_order};
 
 // === IPC ===
 #[derive(Serialize, Deserialize, Debug)]
@@ -30,7 +30,7 @@ enum IPCCommand {
 struct FocusWindowCommand {
     url: Option<String>
 }
-fn get_ipc_socket_name(profile_id: &str, reset: bool) -> io::Result<String> {
+fn get_ipc_socket_name(profile_id: &str, _reset: bool) -> io::Result<String> {
     cfg_if! {
         if #[cfg(target_family = "unix")] {
             // TODO Somehow delete unix socket afterwards? IDK, could break everything if new instance starts before we delete socket
