@@ -5,9 +5,6 @@ on:
     branches: [ master, tmp ]
   pull_request:
     branches: [ master ]
-  create:
-    tags:
-      - v*
 
 env:
   CARGO_TERM_COLOR: always
@@ -172,7 +169,7 @@ jobs:
         uses: metcalfc/changelog-generator@v1.0.0
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          myToken: ${{ secrets.GITHUB_TOKEN }}
+           ${{ secrets.GITHUB_TOKEN }}
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
